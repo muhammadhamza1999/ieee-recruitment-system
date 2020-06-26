@@ -1,0 +1,150 @@
+{% extends 'Team/layout.html' %}
+{% block content %}
+    <div class="alert alert-primary" role="alert">Make sure you either turnout this application or press Don't want to interview</div>
+    <img src="{{ url_for('static',filename='images/interview_area.png') }}" class="img-fluid" alt="Responsive image">
+
+
+    <div class="container-fluid" style="background-color:rgb(255, 255, 255);">
+        <form id="candidateInfo">
+
+            <div class="row">
+
+                <!------------------ left side 1 ------------------------->
+
+                <div class="col-lg-2 col-sm-2 image_area">
+
+                    <img id="applicantImage" class="card-img-top" src="data:;base64,{{ image }}" alt="Card image"
+                         style="max-width: 90%; min-height: 80%;">
+
+
+                </div>
+
+                <div class="col-lg-4 col-sm-4 lside4" id="lcolside4" style="background-color:rgb(255, 255, 255)">
+                    <p><b>NAME</b>: {{ data.name }}</p>
+                    <p><b>YEAR</b>: {{ data.year }}</p>
+                    <p><b>DEPARTMENT</b>: {{ data.discipline }}</p>
+                    <p><b>APPLIED FOR</b> {{ data.domain }}</p>
+                    <p><b>CONTACT NO</b># {{ data.phone_number }}</p>
+                    <p><b>EMAIL</b>: {{ data.email }}</p>
+                    <p><b>CODE</b>: pes/20/{{ data.id }}</p>
+                </div>
+                <!----------- right side 1 ----------------------------->
+                <div class="col-lg-6 col-sm-6" style="background-color:white">
+                    <div class="form-group" id="rtopside1">
+
+                        <label for="input">
+
+                            Enter score for Experience(0-4)
+                            <span id="rside1" style="color:#3AA145;">  <select name="experience" required
+                                                                               class="ml-3"
+                                                                               style=" width: initial;">
+			                    <option value="0">0</option>
+			                    <option value="1">1</option>
+			                    <option value="2">2</option>
+			                    <option value="3">3</option>
+			                    <option value="4">4</option>
+                				</select>
+
+                        </span>
+
+                        </label>
+                    </div>
+
+                    <div class="form-group" id="rtopside1">
+
+                        <label for="input">
+
+                            Enter score for Interview(0-4)
+                            <span id="rside1" style="color:#3AA145;">  <select name="interview" required
+                                                                               class="ml-3"
+                                                                               style=" width: initial;">
+			                   <option value="0">0</option>
+			                    <option value="1">1</option>
+			                    <option value="2">2</option>
+			                    <option value="3">3</option>
+			                    <option value="4">4</option>
+                		</select>
+
+            			</span>
+
+                        </label>
+                    </div>
+
+                    <div class="form-group" id="rtopside1">
+
+                        <label for="input">
+
+                            Enter score for Potential(0-4)
+                            <span id="rside1" style="color:#3AA145;">  <select name="potential" required
+                                                                               class="ml-3"
+                                                                               style=" width: initial;">
+			                    <option value="0">0</option>
+			                    <option value="1">1</option>
+			                    <option value="2">2</option>
+			                    <option value="3">3</option>
+			                    <option value="4">4</option>
+                		</select>
+
+                        </span>
+
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!------------------ left side 2------------------------->
+                <div class="col-lg-6 col-sm-6">
+
+                    <div id="row1in" class="longQues">
+                        <p>TELL US ABOUT YOURSELF</p>
+                    </div>
+                    <div class="answer_here">{{ data.about }}</div>
+
+                    <div id="row2in" class="longQues">
+                        <p>ARE YOU ASSOCIATED WITH ANY VOLUNTEERING ROLES EVEN OUTSIDE IEEE PES NED</p>
+                    </div>
+                    <div class="answer_here">{{ data.association }}</div>
+
+                    <div id="row3in" class="longQues">
+                        <p>WHY DO YOU WANT TO JOIN IEEE PES NED</p>
+                    </div>
+                    <div class="answer_here">{{ data.why }}</div>
+
+                    <div id="row4in" class="longQues">
+                        <p>SHARE YOUR ACHIEVEMENTS WITHIN IEEE (IF ANY, MENTION NIL IF NOTHING)</p>
+                    </div>
+                    <div class="answer_here">{{ data.achievements }}</div>
+
+
+                </div>
+                <!------------------ right side 2 ------------------------->
+                <div class="col-lg-6 col-sm-6" style="background-color:white">
+
+                    <div class="remarks_area" id="textarea">
+                        <label for="input">
+                            <p style="color: #34A132;">PLEASE ENTER YOUR REMARKS FOR THIS CANDIDATE</p>
+                        </label>
+
+                    </div>
+                    <textarea name="remarks" id="textkaarea" class="form-control"
+                              id="exampleFormControlTextarea1" rows="10"
+                              required></textarea>
+
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" name="showFeedback" type="checkbox" value="1" id="showFeedback">
+                        <label class="form-check-label" for="showFeedback">
+                        Show Feedback
+                        </label>
+                    </div>
+                    <div style="background-color:rgb(255, 255, 255);">
+                        <p align="left"> <button type="submit" class="btn btn-success interviewBtn">Turn Out</button>
+                        <button id="dont" type="button" class="btn btn-danger interviewBtn">Don't want to interview</button>
+			        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static',filename='js/interviewArea.js') }}"></script>
+    <!-- form close -->
+    {% endblock %}

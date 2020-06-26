@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>IEEE PES Recruitment</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+
+</head>
+<body class="page-header-image">
+    {% if msg %}
+    <div id="msg-box"><div class="alert alert-danger" role="alert">{{ msg }}</div></div>
+    {% endif %}
+	
+
+	<div id="logreg-forms">
+
+        <form action="{{ url_for('login') }}" method="post" id="loginForm" class="form-signin text-center">
+
+        	<img class="img-responsive text-center mb-3" src="{{ url_for('static', filename='images/logos2.png') }}" style="max-width: 50%;margin-top: 25px;">
+
+        	<h1 class="mb-3 head" style="text-align: center; color: green;"> IEEE PES Recruitment</h1>
+
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;margin-top: -20px;"> Sign in</h1>
+            
+            
+            		<div class="wrap-input100 validate-input text-left" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="email" name="email" required>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+					<div class="wrap-input100 validate-input text-left" data-validate="Password is required">
+						<input class="input100" type="password" name="password" required>
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+            
+            
+           <button type="submit" class="btn btn-success btn-block login100-form-btn text-center sign_in" style="color: white;"> Sign In
+            	<div class="spinner-border ml-auto" id="loader" role="status" aria-hidden="true" style="float: right;max-width:20px;height:20px;display: none;"></div>
+
+             </button>
+
+
+            
+            <br/>
+            
+        </form>
+            
+            
+    </div>
+    <script>
+        const form = document.getElementById('loginForm');
+        form.onsubmit = function(){
+            document.getElementById('loader').style.display='block';
+        }
+    </script>
+
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+
+
+</body>
+</html>

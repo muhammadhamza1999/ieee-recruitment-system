@@ -1,0 +1,28 @@
+{% extends 'CandidateArea/layout.html' %}
+{% block content %}
+    <form method="post" id="statusForm">
+        <label id="upper" class="label-input100 set_width_status" for="app-id">Check Your Registartion Status</label>
+    <div class="wrap-input100 validate-input change_width_verification"
+        data-validate="Valid ID is required i.e. pes/20/11">
+        <input class="set_status" type="text" name="id" id="app-id" placeholder="Enter your application ID to check your status" required>
+    </div>
+
+    <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" type="submit" id="search">
+            Search
+        </button>
+    </div>
+
+
+    </form>
+
+    <table class="table">
+  
+  <tbody id="applicationData">
+
+  </tbody>
+</table>
+
+    <script src="{{ url_for('static',filename='js/statusForm.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'Team/layout.html' %}
+{% block content %}
+
+<div id="img">
+  <img src="{{ url_for('static',filename='images/home.png') }}" width = 100%>
+</div>
+<table>
+  <tr class="row">
+    <td class="col-md-6 col-lg-6" id="left-col">
+
+      <img src="{{ url_for('static',filename='images/teamall.jpg') }}" style="max-width: 95%;margin-bottom: 50px;margin-top: -50px;">
+            <h4 class="about head_about">
+        About IEEE PES NEDUET
+      </h4><br>
+      <p class="about">
+      IEEE PES (Power and Energy Society) is the world’s largest forum for sharing the latest in technological developments in the electric power industry, for developing standards that guide the development and construction of equipment and systems, and for educating members of the industry and the general public. The PES chapter is one of the oldest association of Institute of Electrical and Electronics Engineers (IEEE) with a mission of providing scientific information of power systems that leads to the betterment of society and our members. The IEEE PES NEDUET chapter is one of the biggest division of the PES society in Karachi, Pakistan.
+      </p><br>
+      <h4 class="about head_about">
+        Mission of PES
+      </h4><br>
+      <p class="about">
+        To be the leading provider of scientific and engineering information on electric power and energy for the betterment of society, and the preferred professional development source for our members ~ Approved by the IEEE PES Governing Board, 17 July 2003.
+      </p>
+      
+    </td>
+    <td class="col-md-6 col-lg-6" id="right-col">
+        <canvas height="20%" width="20%" style="margin-top: 100px" id="myChart"></canvas>
+    </td>
+  </tr>
+</table>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script>
+    const None = 0;
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['First', 'Second', 'Third', 'Final'],
+                    datasets: [{
+                        label: 'Applications',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        data: [{{ data.get('First') }}, {{ data.get('Second') }}, {{ data.get('Third') }}, {{ data.get('Fourth') }}]
+                    }]
+                },
+                options: {
+                    legend: {display: false},
+                    title: {
+                        display: true,
+                        text: 'YEARWISE CANDIDATE APPLICATION'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            })
+
+    </script>
+
+{% endblock %}

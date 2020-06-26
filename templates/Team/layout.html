@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>{{ title }}</title>
+
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    {% if page %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/'+page+'.css') }}">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/fetch.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/helper.js') }}"></script>
+
+</head>
+<body>
+
+<div id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><img id="logo" src="{{ url_for('static',filename='images/logoLarge.png') }}"
+                                              style="max-width: 80%;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active" id="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="{{ url_for('candidates') }}" style="color:black;">Candidates</a>
+                </li>
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="{{ url_for('completed') }}" style="color:black;">Interviews Completed</a>
+                </li>
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="{{ url_for('search_get') }}" style="color:black;">Search</a>
+                </li>
+                <li class="nav-item" id="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color:black;">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+{% if not year %}
+    <div id="msg-box"></div>
+{% endif %}
+{% block content %}{% endblock %}
+
+<div class="container-fluid" id="footer">
+    <div class="row" id="imp">
+        <div class="col-lg-12 col-sm-12">Designed and Developed By: <span><b>"TEAM IT"</b></span> | IEEE PES NEDUET ©
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

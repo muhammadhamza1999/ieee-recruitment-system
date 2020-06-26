@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>{{ title }}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.css') }}">
+	<!--===============================================================================================-->
+    {% if is_reg %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/recruit_and_spark_form.css') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<!--===============================================================================================-->
+    <script src="{{ url_for('static',filename='js/helper.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/fetch.js') }}"></script>
+
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<img  class="navbar-brand" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class="nav-item active">
+			  <a class="navo" href="{{ url_for('registration') }}">Form</a>
+			</li>
+			<li class="nav-item">
+			  <a class="navo" href="{{ url_for('status') }}">Status</a>
+			</li>
+              <li class="nav-item">
+			  <a class="navo" href="{{ url_for('login') }}">Admin Login</a>
+			</li>
+		  </ul>
+
+		</div>
+	  </nav>
+
+
+        <div id="msg-box"></div>
+
+        {% block content %}{% endblock %}
+
+
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+	<!--===============================================================================================-->
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/popper.js') }}"></script>
+	<script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

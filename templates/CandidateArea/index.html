@@ -1,0 +1,170 @@
+{% extends 'CandidateArea/layout.html' %}
+
+{% block content %}
+	<div class="container-contact100" id="replace">
+		<div class="wrap-contact100">
+			<form method="post" accept="image/png, image/jpeg" id="registration-form" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					IEEE REGISTRATION
+				</span>
+
+				<label class="label-input100" for="name">Tell us your name *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type name">
+					<input class="input100" type="text" name="name"
+						placeholder="Enter Your Name" required>
+					<span class="focus-input100"></span>
+				</div>
+
+				<label class="label-input100" for="email">Enter your email *</label>
+				<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+					<input type="email" class="input100" name="email"
+						placeholder="Eg. example@email.com" required>
+
+
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="phonenumber">Enter your phone number *</label>
+				<div class="wrap-input100 validate-input" data-validate="Phone number is required">
+					<input type="text" class="input100" name="phoneNumber"
+						placeholder="03001234567" maxlength="11" required>
+
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="cnic">Enter your cnic *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="cnic is required">
+					<input class="input100" type="text" name="cnic"
+						placeholder="12101********" maxlength="13" required>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="year">Choose your year</label>
+				<div class="wrap-input100 change_select_position" style="background-color: transparent;">
+					<select name="year" class="options" placeholder="choose your year" required>
+						<option value="First">First</option>
+						<option value="Second">Second</option>
+						<option value="Third">Third</option>
+						<option value="Fourth">Fourth</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<label class="label-input100" for="phone">Choose Domain</label>
+				<div class="wrap-input100 change_select_position" style="background-color: transparent;">
+					<select name="domain" class="options" placeholder="choose your domain" required>
+						<option value="Promotions">Promotions</option>
+						<option value="Marketing">Marketing</option>
+						<option value="Graphics">Graphics</option>
+						<option value="Information Technology">Information Technology</option>
+						<option value="Creativity">Creativity</option>
+						<option value="Event Management">Event Management</option>
+						<option value="Documentation">Documentation</option>
+						<option value="Human Resource">Human Resource</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="Discipline">Enter your discipline (i.e, Electrical Engineering) *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+					<input class="input100" type="text" name="discipline"
+						placeholder="Enter Your Discipline" required>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="intro">Tell us about yourself *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+                    <textarea class="input100" type="text" name="about" placeholder="" required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="role">Are You Associated with any volunteering roles even outside
+					IEEE PES NED *</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+					<input class="input100" type="text" name="association" placeholder="" required>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="join">Why do you want to join IEEE PES NED</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+                    <textarea class="input100" type="text" name="why" placeholder="" required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="achieve">Share your achievements within IEEE (if any, mention NIL if
+					nothing).</label>
+				<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Type first name">
+                    <textarea class="input100" type="text" name="achievements" placeholder="" required></textarea>
+					<span class="focus-input100"></span>
+				</div>
+				<label class="label-input100" for="image">Enter Your Photo</label>
+				<div  class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Enter photo">
+					<label class="fileContainer">
+						
+						Upload the image
+						<input id="image" name="image" type="file" required>
+					</label>
+				</div>
+				
+				<input type="text" class="code_main" id="code" name="code">
+
+
+
+		    <div class="container-contact100-form-btn">
+
+                    <button type="submit" class="contact100-form-btn" id="submit-form">
+                    Submit
+                </button>
+
+
+
+			 </div>
+			</form>
+
+			<div class="contact100-more flex-col-c-m" style="background-image: url({{ url_for('static', filename='images/bg-01.jpg') }});">
+				<div class="flex-w size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-map-marker"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Address
+						</span>
+
+						<span class="txt2">
+							Electrical Engineering Department, NEDUET
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-phone-handset"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							Lets Talk
+						</span>
+
+						<span class="txt3">
+							0312 0010554
+						</span>
+					</div>
+				</div>
+
+				<div class="dis-flex size1 p-b-47">
+					<div class="txt1 p-r-25">
+						<span class="lnr lnr-envelope"></span>
+					</div>
+
+					<div class="flex-col size2">
+						<span class="txt1 p-b-20">
+							General Support
+						</span>
+
+						<span class="txt3">
+							IEEE@gmail.com
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <script src="{{ url_for('static',filename='js/registrationForm.js') }}"></script>
+{% endblock %}

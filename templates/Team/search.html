@@ -1,0 +1,75 @@
+{% extends 'Team/layout.html' %}
+
+{% block content %}
+
+    <img src="{{ url_for('static',filename='images/search.png') }}" class="img-fluid" alt="Responsive image">
+
+    <div class="container-fluid">
+        <div class="row" id="row">
+            <div class="col-lg-4 col-sm-4"><a href="{{ url_for('home') }}" id="row1">Home ></a>
+                <a href="{{ url_for('search_get') }}" id="row3"> Search </a>
+            </div>
+        </div>
+        <div id="msg-box"></div>
+        <form id="stuck" class="form-inline mt-3" method="post">
+            <div class="form-group">
+                <input style="width: 30rem;margin: 0 17px;" type="email" class="form-control" name="email"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email of the applicant who is stuck in the interview area" required>
+            </div>
+            <button type="submit" class="btn btn-outline-danger">Submit</button>
+        </form>
+    </div>
+    <br/>
+    <div class="container-fluid">
+        <div class="col-lg-12 col-sm-12 candidate">Search</div>
+    <form method="post" id="searchForm" style="margin-left: 20px;" class="form-inline my-3">
+        <select required name="type" id="type" class="form-control mr-2">
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="phone_number">Number</option>
+        </select>
+        <select required name="domain" id="domain" class="form-control mr-2">
+            <option value="All">All</option>
+            <option value="Promotions">Promotions</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Graphics">Graphics</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="Creativity">Creativity</option>
+            <option value="Event Management">Event Management</option>
+            <option value="Documentation">Documentation</option>
+            <option value="Human Resource">Human Resource</option>
+        </select>
+        <input list="searchSuggestions" name="search" required id="search" class="form-control mr-2" style="width:30%;" type="search" placeholder="Search" aria-label="Search">
+        <datalist id="searchSuggestions">
+        </datalist>
+        <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Search</button>
+    </form>
+    </div>
+    <div class="container-fluid">
+        <div class="titletable">
+            <div class="col-lg-12 col-sm-12 candidate">Search Results
+            </div>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Year</th>
+                <th scope="col">Department</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="{{ url_for('static',filename='js/search.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/stuckForm.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/startInterview.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'Team/layout.html' %}
+
+{% block content %}
+    <div id="confirmBox">
+        <div class="message">Are you sure you want to release all records?</div>
+        <a class="confirmBtn" id="yesBtn">Yes</a>
+        <button class="confirmBtn" id="noBtn">No</button>
+    </div>
+
+    <!--BANNER IMAGE-->
+    <img src="{{ url_for('static',filename='images/ban.png') }}" class="img-fluid" alt="Responsive image">
+
+    <div class="container-fluid">
+        <div class="row" id="row">
+            <div class="col-lg-4 col-sm-4"><a href="{{ url_for('home') }}" id="row1">Home ></a>
+                <a href="{{ url_for('completed') }}" id="row3"> Interviews completed </a></div>
+            <div class="col-lg-6 col-sm-6" id="row2">Total Number of Candidates: <span class="numCan"></span></div>
+            <button id="release" class="btn btn-outline-danger col-lg-2 col-sm-2">Release All Records</button>
+
+        </div>
+    </div>
+    <!--TABLE-->
+    <div id="msg-box"></div>
+
+    <div class="container-fluid">
+        <div class="titletable row candidate" style="margin: 0;">
+            <div class="col-lg-6 col-sm-6">Candidates List <a href="{{ url_for('download_reviewed') }}" class="ml-2 btn btn-outline-dark">Export as
+                csv</a></div>
+            <form onsubmit="return false" method="POST" class="col-lg-6 col-sm-6 form-inline" autocomplete="off">
+                <select id="selectionStatus" class="form-control mr-2">
+                    <option value="3" selected>Not Yet Reviewed</option>
+                    <option value="1">Selected</option>
+                    <option value="2">Not Selected</option>
+                </select>
+                <select required id="domainSelect" class="form-control mr-2">
+                    <option value="All">All</option>
+                    <option value="Promotions">Promotions</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Graphics">Graphics</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Creativity">Creativity</option>
+                    <option value="Event Management">Event Management</option>
+                    <option value="Documentation">Documentation</option>
+                    <option value="Human Resource">Human Resource</option>
+                </select><input style="margin-right:9px;display: inline-block;width: 11%;"
+                                type="number" id="numRecords" class="form-control"
+                                placeholder="10"><span style="font-size: 20px">of <span
+                    class="numCan"></span></span>
+            </form>
+
+        </div>
+        <!---table heading-->
+        <table class="table">
+            <thead class="thead-dark">
+            <tr id="tableHeadings">
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Email</th>
+                <th id="contactOrScores" scope="col">Contact No.</th>
+                <th scope="col">Year</th>
+                <th scope="col">Department</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody class="slide-fade" id="tableBody">
+            </tbody>
+        </table>
+
+
+        <button style="margin:15px auto;display: block;" id="loadMoreBtn" class="btn btn-outline-dark">Load More
+        </button>
+    </div>
+
+    <script src="{{ url_for('static',filename='js/interviewCompleted.js') }}"></script>
+
+
+    <!--Table end-->
+{% endblock %}
