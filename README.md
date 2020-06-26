@@ -1,0 +1,2 @@
+# ieee-recruitment-system
+Previously, the PES NEDUET recruitment process took place in the form of Google sheets and Google form. The interviewee had to fill the Google form which had limited validations and customizations. The interviewee data was then stored in one Google sheet which was printed on the interview day, Another sheet was used to store the grades of each interviewee, and then finally another sheet was required to store selected candidates. Nothing was in one place. This problem is now overcome with the development of a recruitment system. 
